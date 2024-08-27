@@ -1,0 +1,44 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#countdown {
+    text-align: center;
+    font-size: 3em;
+    background-color: #61dafb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#celebration {
+    text-align: center;
+    font-size: 3em;
+    color: #ffeb3b;
+}
+
+.hidden {
+    display: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffeb3b;
+    animation: confetti-fall 3s infinite;
+    top: -10px;
+    left: 50%;
+}
+
+@keyframes confetti-fall {
+    0% {transform: translateX(0) translateY(0) rotate(0);}
+    100% {transform: translateX(-50vw) translateY(100vh) rotate(720deg);}
+}
