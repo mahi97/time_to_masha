@@ -9,7 +9,7 @@ const timeElements = {
 };
 
 // Set the target date and time here
-const targetDate = new Date('2024-12-31T23:59:59').getTime();
+const targetDate = new Date('2024-08-27T22:32:00').getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
