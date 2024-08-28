@@ -98,12 +98,12 @@ function addBackgroundImage() {
     imageElement.classList.add('background-image');
 
     // Calculate safe areas for image placement
-    const safeVerticalTop = 15; // 15% down from the top to avoid the header and text
-    const safeVerticalBottom = 50; // 85% down to avoid the countdown
+    const safeVerticalTop = 0; // 15% down from the top to avoid the header and text
+    const safeVerticalBottom = 30; // 85% down to avoid the countdown
     const safeHorizontalLeft = 20; // 10% from the left to avoid left border
     const safeHorizontalRight = 80; // 90% from the left to avoid right border
-    const safeSecondVerticalBottom = 85;
-    const safeSecondVecticalTop = 50;
+    const safeSecondVerticalBottom = 100;
+    const safeSecondVecticalTop = 70;
     // Position the image avoiding the center area and edges
     const verticalPosition = Math.random() * (safeVerticalBottom - safeVerticalTop) + safeVerticalTop;
     const horizontalPosition = Math.random() * (safeHorizontalRight - safeHorizontalLeft) + safeHorizontalLeft;
