@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="main-message">
+        Counting Down the Moments Until You're Back in My Arms ❤️
+    </div>
     <div id="countdown">
         <div id="time">
             <span id="days">00</span>:
@@ -15,12 +18,21 @@
             <span id="seconds">00</span>:
             <span id="milliseconds">000</span>
         </div>
+        <div id="progress-bar">
+            <div id="progress"></div>
+        </div>
     </div>
     <div id="celebration" class="hidden">
-        <h1>Congratulations!</h1>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
+        <h1>Welcome Back, Love! 🎉 You're Here At Last! ❤️</h1>
+        <div class="confetti-container">
+            <!-- Predefined Confetti elements -->
+            <div class="confetti" style="left: 10vw; background-color: #ff69b4; animation-duration: 3s; transform: rotate(45deg);"></div>
+            <div class="confetti" style="left: 30vw; background-color: #ffd700; animation-duration: 4s; transform: rotate(90deg);"></div>
+            <div class="confetti" style="left: 50vw; background-color: #4dd2ff; animation-duration: 5s; transform: rotate(135deg);"></div>
+            <div class="confetti" style="left: 70vw; background-color: #ff6347; animation-duration: 3.5s; transform: rotate(180deg);"></div>
+            <div class="confetti" style="left: 90vw; background-color: #8a2be2; animation-duration: 4.5s; transform: rotate(225deg);"></div>
+            <div class="confetti" style="left: 20vw; background-color: #32cd32; animation-duration: 5.5s; transform: rotate(270deg);"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
