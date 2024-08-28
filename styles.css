@@ -13,7 +13,7 @@ body {
 }
 
 #main-message {
-    font-size: 2em;
+    font-size: 6em;
     margin-bottom: 20px;
     animation: pulse 2s infinite;
 }

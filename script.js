@@ -42,10 +42,10 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    timeElements.days.textContent = String(days) //.padStart(2, '0');
-    timeElements.hours.textContent = String(hours) //.padStart(2, '0');
-    timeElements.minutes.textContent = String(minutes)//.padStart(2, '0');
-    timeElements.seconds.textContent = String(seconds)//.padStart(2, '0');
+    timeElements.days.textContent = String(days).padStart(0, '0');
+    timeElements.hours.textContent = String(hours).padStart(0, '0');
+    timeElements.minutes.textContent = String(minutes).padStart(0, '0');
+    timeElements.seconds.textContent = String(seconds).padStart(0, '0');
 
     leftProgress.style.width = `calc(${progressPosition}% - 20px)`;
     rightProgress.style.width = `calc(${progressPosition}% - 20px)`;
@@ -91,15 +91,23 @@ function addBackgroundImage() {
 
     // Calculate safe areas for image placement
     const safeVerticalTop = 15; // 15% down from the top to avoid the header and text
-    const safeVerticalBottom = 85; // 85% down to avoid the countdown
-    const safeHorizontalLeft = 10; // 10% from the left to avoid left border
-    const safeHorizontalRight = 90; // 90% from the left to avoid right border
-
+    const safeVerticalBottom = 50; // 85% down to avoid the countdown
+    const safeHorizontalLeft = 20; // 10% from the left to avoid left border
+    const safeHorizontalRight = 80; // 90% from the left to avoid right border
+    const safeSecondVerticalBottom = 85;
+    const safeSecondVecticalTop = 50;
     // Position the image avoiding the center area and edges
     const verticalPosition = Math.random() * (safeVerticalBottom - safeVerticalTop) + safeVerticalTop;
     const horizontalPosition = Math.random() * (safeHorizontalRight - safeHorizontalLeft) + safeHorizontalLeft;
+    const verticalPosition2 = Math.random() * (safeSecondVecticalTop - safeSecondVerticalBottom) + safeSecondVerticalBottom;
 
-    imageElement.style.top = `${verticalPosition}%`;
+    const up_or_down = Math.random() > 0.5;
+    
+    if (up_or_down) {
+        imageElement.style.top = `${verticalPosition}%`;
+    } else {
+        imageElement.style.top = `${verticalPosition2}%`;
+    }
     imageElement.style.left = `${horizontalPosition}%`;
 
     // Apply random rotation between -45 and 45 degrees
@@ -111,10 +119,10 @@ function addBackgroundImage() {
     // Remove the image after animation
     setTimeout(() => {
         backgroundContainer.removeChild(imageElement);
-    }, 10000); // Match with the duration of fadeInOut animation
+    }, 6000); // Match with the duration of fadeInOut animation
 }
 
 // Call `addBackgroundImage` at random intervals
-setInterval(addBackgroundImage, 5000); // Adjust the frequency as needed
+setInterval(addBackgroundImage, 3000); // Adjust the frequency as needed
 
 setInterval(updateCountdown, 100);
