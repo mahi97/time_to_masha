@@ -13,7 +13,7 @@ body {
 }
 
 #main-message {
-    font-size: 4em;
+    font-size: 3em;
     margin-bottom: 20px;
     animation: pulse 2s infinite;
 }
@@ -75,11 +75,11 @@ body {
 }
 
 #boy {
-    top: -2px;
+    top: 0px;
 }
 
 #girl {
-    top: 10px;
+    top: 5px;
 }
 
 #celebration h1 {
