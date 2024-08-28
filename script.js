@@ -42,10 +42,10 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    timeElements.days.textContent = String(days).padStart(2, '0');
-    timeElements.hours.textContent = String(hours).padStart(2, '0');
-    timeElements.minutes.textContent = String(minutes).padStart(2, '0');
-    timeElements.seconds.textContent = String(seconds).padStart(2, '0');
+    timeElements.days.textContent = String(days) //.padStart(2, '0');
+    timeElements.hours.textContent = String(hours) //.padStart(2, '0');
+    timeElements.minutes.textContent = String(minutes)//.padStart(2, '0');
+    timeElements.seconds.textContent = String(seconds)//.padStart(2, '0');
 
     leftProgress.style.width = `calc(${progressPosition}% - 20px)`;
     rightProgress.style.width = `calc(${progressPosition}% - 20px)`;
@@ -89,10 +89,15 @@ function addBackgroundImage() {
     imageElement.src = images[src_id];
     imageElement.classList.add('background-image');
 
-    // Position the image primarily on the sides
-    const isLeftSide = Math.random() > 0.5;
-    const verticalPosition = Math.random() * 80 + 10; // Between 10% and 90% vertically
-    const horizontalPosition = isLeftSide ? Math.random() * 10 + 5 : Math.random() * 10 + 85; // Left 5-15% or Right 85-95%
+    // Calculate safe areas for image placement
+    const safeVerticalTop = 15; // 15% down from the top to avoid the header and text
+    const safeVerticalBottom = 85; // 85% down to avoid the countdown
+    const safeHorizontalLeft = 10; // 10% from the left to avoid left border
+    const safeHorizontalRight = 90; // 90% from the left to avoid right border
+
+    // Position the image avoiding the center area and edges
+    const verticalPosition = Math.random() * (safeVerticalBottom - safeVerticalTop) + safeVerticalTop;
+    const horizontalPosition = Math.random() * (safeHorizontalRight - safeHorizontalLeft) + safeHorizontalLeft;
 
     imageElement.style.top = `${verticalPosition}%`;
     imageElement.style.left = `${horizontalPosition}%`;
