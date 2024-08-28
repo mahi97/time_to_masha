@@ -37,19 +37,47 @@ body {
 }
 
 #progress-bar {
+    position: relative;
     width: 100%;
     background-color: #ffe4e1;
+    height: 20px;
+    margin-top: 20px;
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 20px;
-    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#progress {
+#left-progress, #right-progress {
     height: 100%;
     background-color: #ff69b4;
+}
+
+#left-progress {
     width: 0;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+#right-progress {
+    width: 0;
+    border-radius: 0 10px 10px 0;
+    margin-left: auto;
+}
+
+#boy, #girl {
+    position: absolute;
+    top: -30px; /* Adjust based on image size */
+    width: 40px; /* Adjust based on image size */
+    height: 40px; /* Adjust based on image size */
+}
+
+#boy {
+    left: 0;
+}
+
+#girl {
+    right: 0;
 }
 
 #celebration h1 {

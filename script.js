@@ -7,10 +7,11 @@ const timeElements = {
     seconds: document.getElementById('seconds'),
     milliseconds: document.getElementById('milliseconds')
 };
-const progressBar = document.getElementById('progress');
-const confettiContainer = document.querySelector('.confetti-container');
+const leftProgress = document.getElementById('left-progress');
+const rightProgress = document.getElementById('right-progress');
+const boyImage = document.getElementById('boy');
+const girlImage = document.getElementById('girl');
 
-// Set the start date (1st August 2024) and the end date (4th September 2024)
 const startDate = new Date('2024-08-01T00:00:00').getTime();
 const targetDate = new Date('2024-09-04T00:00:00').getTime();
 
@@ -20,6 +21,7 @@ function updateCountdown() {
     const totalDistance = targetDate - startDate;
     const passedDistance = totalDistance - distance;
     const progressPercentage = (passedDistance / totalDistance) * 100;
+    const progressPosition = (progressPercentage / 2); // Each side progresses at half the speed
 
     if (distance <= 0) {
         countdownElement.classList.add('hidden');
@@ -39,7 +41,12 @@ function updateCountdown() {
     timeElements.minutes.textContent = String(minutes).padStart(2, '0');
     timeElements.seconds.textContent = String(seconds).padStart(2, '0');
     timeElements.milliseconds.textContent = String(milliseconds).padStart(3, '0');
-    progressBar.style.width = progressPercentage + '%';
+
+    leftProgress.style.width = `${progressPosition}%`;
+    rightProgress.style.width = `${progressPosition}%`;
+
+    boyImage.style.left = `calc(${progressPosition}% - 20px)`; // Adjust for image size
+    girlImage.style.right = `calc(${progressPosition}% - 20px)`; // Adjust for image size
 }
 
 function generateConfetti() {
@@ -53,7 +60,7 @@ function generateConfetti() {
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
         confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-        confettiContainer.appendChild(confetti);
+        document.querySelector('.confetti-container').appendChild(confetti);
     }
 }
 
