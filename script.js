@@ -14,8 +14,8 @@ const rightProgress = document.getElementById('right-progress');
 const boyImage = document.getElementById('boy');
 const girlImage = document.getElementById('girl');
 const backgroundContainer = document.getElementById('background-images-container');
+
 // Convert KST to UTC
-// KST (Korea Standard Time) is UTC+9, so we subtract 9 hours to get UTC time
 let startDate = new Date(Date.UTC(2024, 6, 29, 22, 30, 0)).getTime(); // 1st August 2024, 00:00:00 KST -> 31st July 2024, 15:00:00 UTC
 let targetDate = new Date(Date.UTC(2024, 8, 4, 7, 0, 0)).getTime(); // 4th September 2024, 00:00:00 KST -> 3rd September 2024, 15:00:00 UTC
 
@@ -41,13 +41,11 @@ function updateCountdown() {
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    // const milliseconds = Math.floor((distance % 1000));
 
     timeElements.days.textContent = String(days).padStart(2, '0');
     timeElements.hours.textContent = String(hours).padStart(2, '0');
     timeElements.minutes.textContent = String(minutes).padStart(2, '0');
     timeElements.seconds.textContent = String(seconds).padStart(2, '0');
-    // timeElements.milliseconds.textContent = String(milliseconds).padStart(3, '0');
 
     leftProgress.style.width = `calc(${progressPosition}% - 20px)`;
     rightProgress.style.width = `calc(${progressPosition}% - 20px)`;
@@ -57,7 +55,6 @@ function updateCountdown() {
 }
 
 function generateConfetti() {
-    
     const colors = ['#ff69b4', '#ffd700', '#4dd2ff', '#ff6347', '#8a2be2', '#32cd32'];
     const numberOfConfetti = 100;
     if (flag) {
@@ -65,7 +62,6 @@ function generateConfetti() {
             const confetti = document.createElement('div');
             confetti.classList.add('confetti');
             confetti.style.left = Math.random() * 50 + 'vw';
-            confetti.style.top = 
             confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
             confetti.style.animationDuration = (Math.random() * 5 + 5) + 's';
             confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
@@ -84,7 +80,6 @@ function addBackgroundImage() {
         'imgs/004.jpg',
         'imgs/005.jpg',
         'imgs/006.jpg',
-
     ];
 
     const imageElement = document.createElement('img');
@@ -114,9 +109,7 @@ function addBackgroundImage() {
     }, 10000); // Match with the duration of fadeInOut animation
 }
 
-
 // Call `addBackgroundImage` at random intervals
 setInterval(addBackgroundImage, 5000); // Adjust the frequency as needed
-
 
 setInterval(updateCountdown, 100);
