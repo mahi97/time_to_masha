@@ -45,8 +45,8 @@ function updateCountdown() {
     leftProgress.style.width = `${progressPosition}%`;
     rightProgress.style.width = `${progressPosition}%`;
 
-    boyImage.style.left = `calc(${progressPosition}% - 20px)`; // Adjust for image size
-    girlImage.style.right = `calc(${progressPosition}% - 20px)`; // Adjust for image size
+    boyImage.style.left = `calc(${progressPosition}% - 50px)`; // Adjust for image size
+    girlImage.style.right = `calc(${progressPosition}% - 50px)`; // Adjust for image size
 }
 
 function generateConfetti() {

@@ -30,17 +30,19 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 1000px
 }
 
 #time {
     font-size: 2.5em;
 }
 
+
 #progress-bar {
     position: relative;
     width: 100%;
     background-color: #ffe4e1;
-    height: 20px;
+    height: 100px;
     margin-top: 20px;
     border-radius: 10px;
     overflow: hidden;
@@ -65,19 +67,21 @@ body {
     margin-left: auto;
 }
 
-#boy, #girl {
-    position: absolute;
-    top: -30px; /* Adjust based on image size */
-    width: 40px; /* Adjust based on image size */
-    height: 40px; /* Adjust based on image size */
-}
 
 #boy {
     left: 0;
+    position: absolute;
+    top: 0px; /* Adjust based on image size */
+    width: 80px; /* Adjust based on image size */
+    height: 100px; /* Adjust based on image size */
 }
 
 #girl {
     right: 0;
+    position: absolute;
+    top: 0px; /* Adjust based on image size */
+    width: 80px; /* Adjust based on image size */
+    height: 100px; /* Adjust based on image size */
 }
 
 #celebration h1 {
