@@ -1,4 +1,6 @@
 const countdownElement = document.getElementById('countdown');
+const textElement = document.getElementById('main-message');
+const lineElement = document.getElementById('iline');
 const celebrationElement = document.getElementById('celebration');
 const timeElements = {
     days: document.getElementById('days'),
@@ -14,7 +16,7 @@ const girlImage = document.getElementById('girl');
 
 let startDate = new Date('2024-08-01T00:00:00').getTime();
 let targetDate = new Date('2024-09-04T00:00:00').getTime();
-
+let flag = true;
 function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate - now;
@@ -25,6 +27,8 @@ function updateCountdown() {
 
     if (distance <= 0) {
         countdownElement.classList.add('hidden');
+        textElement.classList.add('hidden');
+        lineElement.classList.add('hidden');
         celebrationElement.classList.remove('hidden');
         generateConfetti();
         return;
@@ -42,26 +46,30 @@ function updateCountdown() {
     timeElements.seconds.textContent = String(seconds).padStart(2, '0');
     // timeElements.milliseconds.textContent = String(milliseconds).padStart(3, '0');
 
-    leftProgress.style.width = `${progressPosition}%`;
-    rightProgress.style.width = `${progressPosition}%`;
+    leftProgress.style.width = `calc(${progressPosition}% - 20px)`;
+    rightProgress.style.width = `calc(${progressPosition}% - 20px)`;
 
-    boyImage.style.left = `calc(${progressPosition}% - 50px)`; // Adjust for image size
-    girlImage.style.right = `calc(${progressPosition}% - 50px)`; // Adjust for image size
+    boyImage.style.left = `calc(${progressPosition}% - 70px)`; // Adjust for image size
+    girlImage.style.right = `calc(${progressPosition}% - 70px)`; // Adjust for image size
 }
 
 function generateConfetti() {
+    
     const colors = ['#ff69b4', '#ffd700', '#4dd2ff', '#ff6347', '#8a2be2', '#32cd32'];
     const numberOfConfetti = 100;
-
-    for (let i = 0; i < numberOfConfetti; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-        document.querySelector('.confetti-container').appendChild(confetti);
+    if (flag) {
+        for (let i = 0; i < numberOfConfetti; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 50 + 'vw';
+            confetti.style.top = 
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            document.querySelector('.confetti-container').appendChild(confetti);
+        }
+        flag = false;
     }
 }
 
-setInterval(updateCountdown, 1);
+setInterval(updateCountdown, 100);

@@ -102,11 +102,11 @@ body {
     width: 10px;
     height: 10px;
     background-color: #ff69b4;
-    animation: confetti-fall 5s infinite ease-out;
+    animation: confetti-fall 10s infinite ease-out
 }
 
 @keyframes confetti-fall {
-    0% {transform: translateY(0) translateX(0) rotate(0);}
+    0% {transform: translateY(-10000px) translateX(100px) rotate(0);}
     100% {transform: translateY(100vh) translateX(calc(-50vw + 100px)) rotate(360deg);}
 }
 
