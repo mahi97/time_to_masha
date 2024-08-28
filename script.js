@@ -72,4 +72,40 @@ function generateConfetti() {
     }
 }
 
+
+function addBackgroundImage() {
+    const images = [
+        'imgs/001.jpg',
+        'imgs/002.jpg',
+        'imgs/003.jpg',
+        'imgs/004.jpg',
+        'imgs/005.jpg',
+        'imgs/006.jpg',
+
+    ];
+
+    const imageElement = document.createElement('img');
+    imageElement.src = images[Math.floor(Math.random() * images.length)];
+    imageElement.classList.add('background-image');
+
+    // Position the image primarily on the sides
+    const isLeftSide = Math.random() > 0.5;
+    const verticalPosition = Math.random() * 80 + 10; // Between 10% and 90% vertically
+    const horizontalPosition = isLeftSide ? Math.random() * 10 + 5 : Math.random() * 10 + 85; // Left 5-15% or Right 85-95%
+
+    imageElement.style.top = `${verticalPosition}%`;
+    imageElement.style.left = `${horizontalPosition}%`;
+
+    backgroundContainer.appendChild(imageElement);
+
+    // Remove the image after animation
+    setTimeout(() => {
+        backgroundContainer.removeChild(imageElement);
+    }, 10000); // Match with the duration of fadeInOut animation
+}
+
+// Call `addBackgroundImage` at random intervals
+setInterval(addBackgroundImage, 5000); // Adjust the frequency as needed
+
+
 setInterval(updateCountdown, 100);
