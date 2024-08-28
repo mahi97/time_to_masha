@@ -17,7 +17,7 @@ const backgroundContainer = document.getElementById('background-images-container
 // Convert KST to UTC
 // KST (Korea Standard Time) is UTC+9, so we subtract 9 hours to get UTC time
 let startDate = new Date(Date.UTC(2024, 6, 29, 22, 30, 0)).getTime(); // 1st August 2024, 00:00:00 KST -> 31st July 2024, 15:00:00 UTC
-let targetDate = new Date(Date.UTC(2024, 7, 4, 7, 0, 0)).getTime(); // 4th September 2024, 00:00:00 KST -> 3rd September 2024, 15:00:00 UTC
+let targetDate = new Date(Date.UTC(2024, 8, 4, 7, 0, 0)).getTime(); // 4th September 2024, 00:00:00 KST -> 3rd September 2024, 15:00:00 UTC
 
 let flag = true;
 function updateCountdown() {
@@ -75,7 +75,7 @@ function generateConfetti() {
     }
 }
 
-
+let src_id = 0;
 function addBackgroundImage() {
     const images = [
         'imgs/001.jpg',
@@ -88,7 +88,10 @@ function addBackgroundImage() {
     ];
 
     const imageElement = document.createElement('img');
-    imageElement.src = images[Math.floor(Math.random() * images.length)];
+    new_id = Math.floor(Math.random() * images.length);
+    while (new_id == src_id) new_id = Math.floor(Math.random() * images.length);
+    src_id = new_id;
+    imageElement.src = images[src_id];
     imageElement.classList.add('background-image');
 
     // Position the image primarily on the sides
