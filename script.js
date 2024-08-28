@@ -12,8 +12,8 @@ const rightProgress = document.getElementById('right-progress');
 const boyImage = document.getElementById('boy');
 const girlImage = document.getElementById('girl');
 
-const startDate = new Date('2024-08-01T00:00:00').getTime();
-const targetDate = new Date('2024-09-04T00:00:00').getTime();
+let startDate = new Date('2024-08-01T00:00:00').getTime();
+let targetDate = new Date('2024-09-04T00:00:00').getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();

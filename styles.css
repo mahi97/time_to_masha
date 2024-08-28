@@ -42,7 +42,7 @@ body {
     position: relative;
     width: 100%;
     background-color: #ffe4e1;
-    height: 100px;
+    height: 110px;
     margin-top: 20px;
     border-radius: 10px;
     overflow: hidden;
@@ -71,15 +71,15 @@ body {
 #boy {
     left: 0;
     position: absolute;
-    top: 0px; /* Adjust based on image size */
+    top: -2px; /* Adjust based on image size */
     width: 80px; /* Adjust based on image size */
-    height: 100px; /* Adjust based on image size */
+    height: 112px; /* Adjust based on image size */
 }
 
 #girl {
     right: 0;
     position: absolute;
-    top: 0px; /* Adjust based on image size */
+    top: 10px; /* Adjust based on image size */
     width: 80px; /* Adjust based on image size */
     height: 100px; /* Adjust based on image size */
 }
