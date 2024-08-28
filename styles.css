@@ -134,8 +134,8 @@ body {
     position: absolute;
     opacity: 0;
     animation: fadeInOut 10s ease-in-out;
-    max-width: 200px; /* Adjust size as needed */
-    max-height: 200px;
+    max-width: 300px; /* Adjust size as needed */
+    max-height: 300px;
 }
 
 @keyframes fadeInOut {

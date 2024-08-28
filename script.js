@@ -13,9 +13,12 @@ const leftProgress = document.getElementById('left-progress');
 const rightProgress = document.getElementById('right-progress');
 const boyImage = document.getElementById('boy');
 const girlImage = document.getElementById('girl');
+const backgroundContainer = document.getElementById('background-images-container');
+// Convert KST to UTC
+// KST (Korea Standard Time) is UTC+9, so we subtract 9 hours to get UTC time
+let startDate = new Date(Date.UTC(2024, 7, 29, 22, 30, 0)).getTime(); // 1st August 2024, 00:00:00 KST -> 31st July 2024, 15:00:00 UTC
+let targetDate = new Date(Date.UTC(2024, 8, 4, 7, 0, 0)).getTime(); // 4th September 2024, 00:00:00 KST -> 3rd September 2024, 15:00:00 UTC
 
-let startDate = new Date('2024-08-01T00:00:00').getTime();
-let targetDate = new Date('2024-09-04T00:00:00').getTime();
 let flag = true;
 function updateCountdown() {
     const now = new Date().getTime();
@@ -96,6 +99,10 @@ function addBackgroundImage() {
     imageElement.style.top = `${verticalPosition}%`;
     imageElement.style.left = `${horizontalPosition}%`;
 
+    // Apply random rotation between -45 and 45 degrees
+    const rotation = Math.random() * 90 - 45;
+    imageElement.style.transform = `rotate(${rotation}deg)`;
+
     backgroundContainer.appendChild(imageElement);
 
     // Remove the image after animation
@@ -103,6 +110,7 @@ function addBackgroundImage() {
         backgroundContainer.removeChild(imageElement);
     }, 10000); // Match with the duration of fadeInOut animation
 }
+
 
 // Call `addBackgroundImage` at random intervals
 setInterval(addBackgroundImage, 5000); // Adjust the frequency as needed
