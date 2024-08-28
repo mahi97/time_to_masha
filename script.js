@@ -79,7 +79,15 @@ function addBackgroundImage() {
         'imgs/003.jpg',
         'imgs/004.jpg',
         'imgs/005.jpg',
-        'imgs/006.jpg',
+        'imgs/007.jpg',
+        'imgs/008.jpg',
+        'imgs/009.jpg',
+        'imgs/010.jpg',
+        'imgs/011.jpg',
+        'imgs/012.jpg',
+        'imgs/013.jpg',
+        'imgs/014.jpg',
+        'imgs/015.jpg',
     ];
 
     const imageElement = document.createElement('img');
