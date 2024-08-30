@@ -18,7 +18,7 @@ const backgroundContainer = document.getElementById('background-images-container
 // Convert KST to UTC
 let startDate = new Date(Date.UTC(2024, 6, 29, 22, 30, 0)).getTime(); // 1st August 2024, 00:00:00 KST -> 31st July 2024, 15:00:00 UTC
 let targetDate = new Date(Date.UTC(2024, 8, 4, 7, 0, 0)).getTime(); // 4th September 2024, 00:00:00 KST -> 3rd September 2024, 15:00:00 UTC
-
+let speed = 1;
 let flag = true;
 function updateCountdown() {
     const now = new Date().getTime();
@@ -37,10 +37,10 @@ function updateCountdown() {
         return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24 / speed));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24 / speed)) / (1000 * 60 * 60 / speed));
+    const minutes = Math.floor((distance % (1000 * 60 * 60 / speed)) / (1000 * 60 / speed));
+    const seconds = Math.floor((distance % (1000 * 60 / speed)) / (1000 / speed));
 
     timeElements.days.textContent = String(days).padStart(0, '0');
     timeElements.hours.textContent = String(hours).padStart(0, '0');
@@ -133,4 +133,4 @@ function addBackgroundImage() {
 // Call `addBackgroundImage` at random intervals
 setInterval(addBackgroundImage, 3000); // Adjust the frequency as needed
 
-setInterval(updateCountdown, 100);
+setInterval(updateCountdown, 1);
