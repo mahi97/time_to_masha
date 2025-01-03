@@ -16,7 +16,7 @@ const girlImage = document.getElementById('girl');
 const backgroundContainer = document.getElementById('background-images-container');
 
 // Convert KST to UTC
-let startDate = new Date(Date.UTC(2025, 0, 3, 23, 30, 0)).getTime(); // 1st August 2024, 00:00:00 KST -> 31st July 2024, 15:00:00 UTC
+let startDate = new Date(Date.UTC(2025, 0, 3, 01, 30, 0)).getTime(); // 1st August 2024, 00:00:00 KST -> 31st July 2024, 15:00:00 UTC
 let targetDate = new Date(Date.UTC(2025, 0, 12, 01, 30, 0)).getTime(); // 4th September 2024, 00:00:00 KST -> 3rd September 2024, 15:00:00 UTC
 let speed = 1;
 let flag = true;
